@@ -1,9 +1,20 @@
 package url
 
 import (
+	"fmt"
 	"github.com/wangluozhe/requests/utils"
 	"strings"
 )
+// 解析Values字符串为Values结构体
+func ParseDictData(params map[string]interface{}) *Values {
+	p := NewValues()
+	for key, value := range params {
+		keyValue := fmt.Sprintf("%v", value)
+		p.Add(key, keyValue)
+	}
+	return p
+}
+
 
 // 解析Values字符串为Values结构体
 func ParseValues(params string) *Values {

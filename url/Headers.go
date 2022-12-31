@@ -2,6 +2,7 @@ package url
 
 import (
 	"errors"
+	"fmt"
 	http "github.com/Danny-Dasilva/fhttp"
 	"strings"
 )
@@ -30,6 +31,19 @@ func ParseHeaders(headers string) *http.Header {
 		key := keyValue[0]
 		value := keyValue[1]
 		h.Set(key, value)
+		headerOrder = append(headerOrder, strings.ToLower(key))
+	}
+	h[http.HeaderOrderKey] = headerOrder
+	return &h
+}
+
+// 解析Headers字符串为结构体
+func ParseDictHeaders(headers map[string]interface{}) *http.Header {
+	h := http.Header{}
+	headerOrder := []string{}
+	for key, value := range headers {
+		keyValue := fmt.Sprintf("%v", value)
+		h.Set(key, keyValue)
 		headerOrder = append(headerOrder, strings.ToLower(key))
 	}
 	h[http.HeaderOrderKey] = headerOrder

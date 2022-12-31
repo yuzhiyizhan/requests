@@ -2,6 +2,7 @@ package url
 
 import (
 	"errors"
+	"fmt"
 	http "github.com/Danny-Dasilva/fhttp"
 	"github.com/Danny-Dasilva/fhttp/cookiejar"
 	"net/url"
@@ -31,6 +32,19 @@ func ParseCookies(rawurl, cookies string) *cookiejar.Jar {
 		c.SetCookies(urls, []*http.Cookie{&http.Cookie{
 			Name:  key,
 			Value: value,
+		}})
+	}
+	return c
+}
+
+func ParseDictCookies(rawurl string, cookies map[string]interface{}) *cookiejar.Jar {
+	c := NewCookies()
+	urls, _ := url.Parse(rawurl)
+	for key, value := range cookies {
+		keyValue := fmt.Sprintf("%v", value)
+		c.SetCookies(urls, []*http.Cookie{&http.Cookie{
+			Name:  key,
+			Value: keyValue,
 		}})
 	}
 	return c
