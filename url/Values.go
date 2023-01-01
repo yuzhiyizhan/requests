@@ -2,7 +2,7 @@ package url
 
 import (
 	"fmt"
-	"github.com/wangluozhe/requests/utils"
+	"github.com/yuzhiyizhan/requests/utils"
 	"strings"
 )
 // 解析Values字符串为Values结构体

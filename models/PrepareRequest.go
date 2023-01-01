@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"github.com/Danny-Dasilva/fhttp"
 	"github.com/Danny-Dasilva/fhttp/cookiejar"
-	"github.com/wangluozhe/requests/url"
+	"github.com/yuzhiyizhan/requests/url"
 	"io"
 	"io/ioutil"
 	"strconv"
