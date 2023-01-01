@@ -1,4 +1,4 @@
-module github.com/wangluozhe/requests
+module github.com/yuzhiyizhan/requests
 
 go 1.15
 

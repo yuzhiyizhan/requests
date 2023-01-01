@@ -19,16 +19,9 @@ requests支持以下新特性：
 ## 下载requests库
 
 ```bash
-go get github.com/wangluozhe/requests
+go get github.com/yuzhiyizhan/requests
 ```
 
-
-
-## 下载指定版
-
-```bash
-go get github.com/wangluozhe/requests@v1.0.4
-```
 
 
 
